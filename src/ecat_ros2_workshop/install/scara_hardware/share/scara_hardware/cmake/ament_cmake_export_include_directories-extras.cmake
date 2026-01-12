@@ -1,0 +1,1 @@
+/home/mpr/info_indus/ros2_ws/src/ecat_ros2_workshop/build/scara_hardware/ament_cmake_export_include_directories/ament_cmake_export_include_directories-extras.cmake
