@@ -53,9 +53,9 @@ Rechargez votre fichier ``~/.bashrc`` pour prendre en compte les modifications:
 Vous pouvez maintenant utiliser les macros bash que vous venez de définir.
 
 
-**********************
+----------------------
 Utilisation du package
-**********************
+----------------------
 
 Nous allons maintenant compiler le package ROS2 que nous venons de cloner à l'aide des macros bash que nous venons de définir.
 
@@ -101,3 +101,17 @@ Finalement, la commande ci-dessous permet de lancer le noeud ROS2 qui ouvre RViz
 .. code-block:: bash
 
    ros2 launch scara_bringup scara.launch.py
+
+.. figure:: resources/img/rviz_assembled.png
+   :align: center
+   :class: w_margins
+   :alt: Vue du pantographe assemblé dans RViz
+
+   Pantographe modélisé dans RViz
+
+.. figure:: resources/img/rviz_disassembled.png
+   :align: center
+   :class: w_margins
+   :alt: Vue du pantographe désassemblé dans RViz
+
+   Le pantographe ne peut pas être assemblée dans RViz, nous avons cassé la liaison centrale. En effet, RViz ne prend pas en charge les systèmes en boucle fermée
