@@ -1,0 +1,724 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lancer les tests de ROS2 et les analyser &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2ec175e1" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=05dadb3a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Les outils nécessaires pour collaborer entre codeurs" href="../c04_collaborate_with_coders/p04s00_index.html" />
+    <link rel="prev" title="Tester le code" href="p03s00_index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cours d'Informatique Industrielle avec ROS2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Informatique Industrielle &amp; ROS2</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../c00_introduction/p00s00_index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c01_create_and_publish_doc/p01s00_index.html">Premier projet &amp; doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_first_ros2_project_pimped/p02s00_index.html">Tutoriel ROS2 épicé</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="p03s00_index.html">Tester le code</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lancer les tests de ROS2 et les analyser</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lancer-les-tests-sur-tous-les-paquets-du-repertoire-de-travail">Lancer les tests sur tous les paquets du répertoire de travail</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exemple-d-execution-sans-erreur">Exemple d’exécution sans erreur</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exemple-d-execution-avec-erreurs">Exemple d’exécution avec erreurs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lancer-les-tests-pour-un-paquet-specifique">Lancer les tests pour un paquet spécifique</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#analyser-les-resultats-des-tests">Analyser les résultats des tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../c04_collaborate_with_coders/p04s00_index.html">Les outils nécessaires pour collaborer entre codeurs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Travaux Pratiques</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../p00_pentograph_pencil_holder_with_rpi_and_dynamixel/p50s00_index.html">Pantographe de dessin robotisé avec Raspberry Pi et ROS2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../p01_rpi_ubuntu_as_a_ros2_robotic_platform/p51s00_index.html">Ubuntu &amp; RPi &amp; ROS2</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cours d'Informatique Industrielle avec ROS2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="p03s00_index.html">Tester le code</a></li>
+      <li class="breadcrumb-item active">Lancer les tests de ROS2 et les analyser</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/c03_test_your_code/p03s01_run_ros2_tests.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lancer-les-tests-de-ros2-et-les-analyser">
+<h1>Lancer les tests de ROS2 et les analyser<a class="headerlink" href="#lancer-les-tests-de-ros2-et-les-analyser" title="Lien vers cette rubrique"></a></h1>
+<p>Avec les commandes bash enregistrées dans :<a class="reference internal" href="../c02_first_ros2_project_pimped/p02s01_pimped_pubsub.html"><span class="doc">votre fichier .bashrc</span></a> , vous pouvez lancer les tests de ROS2 avec les commandes décrites ci-dessous.
+N’oubliez pas que pour que cela fonctionne, il faut avoir initialisé l’environnement ros2 et que toutes les paquets aient été compilés avec succès.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2_humble
+ros2_build
+</pre></div>
+</div>
+<section id="lancer-les-tests-sur-tous-les-paquets-du-repertoire-de-travail">
+<h2>Lancer les tests sur tous les paquets du répertoire de travail<a class="headerlink" href="#lancer-les-tests-sur-tous-les-paquets-du-repertoire-de-travail" title="Lien vers cette rubrique"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2_test
+</pre></div>
+</div>
+<section id="exemple-d-execution-sans-erreur">
+<h3>Exemple d’exécution sans erreur<a class="headerlink" href="#exemple-d-execution-sans-erreur" title="Lien vers cette rubrique"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[1] 140979
+Starting &gt;&gt;&gt; scara_description
+Starting &gt;&gt;&gt; scara_bringup
+Starting &gt;&gt;&gt; scara_joint_velocity_controller
+Starting &gt;&gt;&gt; scara_nodes
+Finished &lt;&lt;&lt; scara_joint_velocity_controller [0.03s]
+Finished &lt;&lt;&lt; scara_description [0.60s]                                                                  
+Starting &gt;&gt;&gt; scara_hardware
+Finished &lt;&lt;&lt; scara_hardware [0.01s]                                                                  
+Finished &lt;&lt;&lt; scara_nodes [0.96s]                                             
+Finished &lt;&lt;&lt; scara_bringup [1.17s]          
+
+Summary: 5 packages finished [1.38s]
+[1]+  Done                    source install/setup.bash
+</pre></div>
+</div>
+</section>
+<section id="exemple-d-execution-avec-erreurs">
+<h3>Exemple d’exécution avec erreurs<a class="headerlink" href="#exemple-d-execution-avec-erreurs" title="Lien vers cette rubrique"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>[1] 129806
+<span class="linenos"> 2</span>Starting &gt;&gt;&gt; scara_description
+<span class="linenos"> 3</span>Starting &gt;&gt;&gt; scara_bringup
+<span class="linenos"> 4</span>Starting &gt;&gt;&gt; scara_joint_velocity_controller
+<span class="linenos"> 5</span>Starting &gt;&gt;&gt; scara_nodes
+<span class="linenos"> 6</span>Finished &lt;&lt;&lt; scara_joint_velocity_controller [0.09s]                                                                                             
+<span class="linenos"> 7</span>Finished &lt;&lt;&lt; scara_description [0.66s]                                                                  
+<span class="linenos"> 8</span>Starting &gt;&gt;&gt; scara_hardware
+<span class="linenos"> 9</span>Finished &lt;&lt;&lt; scara_hardware [0.08s]                                                                  
+<span class="hll"><span class="linenos">10</span>--- stderr: scara_bringup                                                    
+</span><span class="hll"><span class="linenos">11</span>Errors while running CTest
+</span><span class="hll"><span class="linenos">12</span>Output from these tests are in: /home/pi/info_indus/ros2_ws/build/scara_bringup/Testing/Temporary/LastTest.log
+</span><span class="hll"><span class="linenos">13</span>Use &quot;--rerun-failed --output-on-failure&quot; to re-run the failed cases verbosely.
+</span><span class="hll"><span class="linenos">14</span>---
+</span><span class="hll"><span class="linenos">15</span>Finished &lt;&lt;&lt; scara_bringup [1.04s]      [ with test failures ]
+</span><span class="hll"><span class="linenos">16</span>--- stderr: scara_nodes
+</span><span class="hll"><span class="linenos">17</span>Errors while running CTest
+</span><span class="hll"><span class="linenos">18</span>Output from these tests are in: /home/pi/info_indus/ros2_ws/build/scara_nodes/Testing/Temporary/LastTest.log
+</span><span class="hll"><span class="linenos">19</span>Use &quot;--rerun-failed --output-on-failure&quot; to re-run the failed cases verbosely.
+</span><span class="hll"><span class="linenos">20</span>---
+</span><span class="hll"><span class="linenos">21</span>Finished &lt;&lt;&lt; scara_nodes [1.06s]        [ with test failures ]
+</span><span class="linenos">22</span>
+<span class="linenos">23</span>Summary: 5 packages finished [1.46s]
+<span class="linenos">24</span>  2 packages had stderr output: scara_bringup scara_nodes
+<span class="linenos">25</span>  2 packages had test failures: scara_bringup scara_nodes
+<span class="linenos">26</span>[1]+  Done                    source install/setup.bash
+</pre></div>
+</div>
+</section>
+</section>
+<section id="lancer-les-tests-pour-un-paquet-specifique">
+<h2>Lancer les tests pour un paquet spécifique<a class="headerlink" href="#lancer-les-tests-pour-un-paquet-specifique" title="Lien vers cette rubrique"></a></h2>
+<p>La commande est:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2_test_only<span class="w"> </span>&lt;nom_du_paquet&gt;
+</pre></div>
+</div>
+<p>Par exemple:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2_test_only<span class="w"> </span>scara_velocity_supervision
+</pre></div>
+</div>
+</section>
+<section id="analyser-les-resultats-des-tests">
+<h2>Analyser les résultats des tests<a class="headerlink" href="#analyser-les-resultats-des-tests" title="Lien vers cette rubrique"></a></h2>
+<p>S’il y a une erreur, la sortie des tests telle qu’indiquée dans la sortie de la commande <code class="docutils literal notranslate"><span class="pre">ros2_test</span></code> ou <code class="docutils literal notranslate"><span class="pre">ros2_test_only</span></code> est bien souvent vide et donc inutile pour comprendre l’erreur.</p>
+<p>Pour faire une analyse des tests, il faut utiliser la commande:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2_view_tests
+</pre></div>
+</div>
+<p>Celle-ci donne des informations uniquement pour les tests qui contiennent des erreurs.
+Par exemple:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>build/scara_bringup/Testing/20241121-1426/Test.xml: 5 tests, 0 errors, 1 failure, 0 skipped
+build/scara_bringup/test_results/scara_bringup/flake8.xunit.xml: 21 tests, 0 errors, 21 failures, 0 skipped
+build/scara_nodes/Testing/20241121-1426/Test.xml: 4 tests, 0 errors, 1 failure, 0 skipped
+build/scara_nodes/test_results/scara_nodes/flake8.xunit.xml: 5 tests, 0 errors, 5 failures, 0 skipped
+
+Summary: 50 tests, 0 errors, 28 failures, 0 skipped
+</pre></div>
+</div>
+<p>En exécutant ces commandes dans un terminal de vscode,
+Il suffit de faire un <code class="docutils literal notranslate"><span class="pre">click</span> <span class="pre">gauche</span></code> avec la souris sur le lien en maintenant appuyée la touche <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> du clavier pour ouvrir le fichier de log des tests et voir les erreurs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Nous avons défini une fonction <code class="docutils literal notranslate"><span class="pre">ros2_view_tests_all</span></code> qui permet de voir tous les tests, même ceux qui n’ont pas d’erreur.
+Les cas d’usage sont très rares: principalement pour débuguer les CMakeLists.txt impliquant des tests et vérifier quels tests sont executés.</p>
+</div>
+<p>En ajoutant les lignes suivantes dans le fichier de configuration de vscode, vous pouvez ouvrir les fichiers de log des tests avec la coloration syntaxique adaptée:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;files.associations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nt">&quot;Test.xml&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+<span class="w">     </span><span class="nt">&quot;*.xunit.xml&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+<span class="w">     </span><span class="nt">&quot;*.gtest.xml&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;log&quot;</span>
+<span class="w">     </span><span class="p">},</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si vous avez déjà une variable <code class="docutils literal notranslate"><span class="pre">files.associations</span></code> définie dans votre fichier de configuration, il suffit d’ajouter les lignes ci-dessus dans la définition de cette variable.</p>
+</div>
+<p>D’autres options de configuration de vscode sont disponibles dans le fichier de configuration de vscode de ce cours, qui est très inspiré du projet git: <a class="reference external" href="https://github.com/athackst/vscode_ros2_workspace">vscode_ros2_workspace d’athackst (Allison Thackston)</a></p>
+<p>Votre fichier de configuration de vscode peut ressembler à ceci:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" id="settings-json-vscode">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">settings.json</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Humble</label><div class="sd-tab-content docutils">
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">settings.json</span><a class="headerlink" href="#id2" title="Lien vers ce code"></a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;editor.detectIndentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;editor.formatOnPaste&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;editor.wordWrap&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;C_Cpp.clang_format_sortIncludes&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;terminal.integrated.scrollback&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;workbench.editor.enablePreview&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;[restructuredtext]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;editor.tabSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;files.associations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Test.xml&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;*.xunit.xml&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;*.gtest.xml&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;*.repos&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yaml&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;*.world&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xml&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;*.xacro&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xml&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;editor.tabSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;editor.rulers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="mi">100</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;python.analysis.extraPaths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;/opt/ros/humble/lib/python3.10/site-packages/&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="c1">// Autocomplete from ros python packages</span>
+<span class="w">    </span><span class="nt">&quot;python.autoComplete.extraPaths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;/opt/ros/humble/lib/python3.10/site-packages/&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="c1">// Environment file lets vscode find python files within workspace</span>
+<span class="w">    </span><span class="nt">&quot;python.envFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/.env&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">// Use the system installed version of autopep8</span>
+<span class="w">    </span><span class="nt">&quot;python.formatting.autopep8Path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/autopep8&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;python.formatting.autopep8Args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;--max-line-length=100&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;C_Cpp.default.intelliSenseMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;linux-gcc-x86&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;C_Cpp.formatting&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;disabled&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;uncrustify.configPath.linux&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/opt/ros/humble/lib/python3.10/site-packages/ament_uncrustify/configuration/ament_code_style.cfg&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;[cpp]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;editor.defaultFormatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;zachflower.uncrustify&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;search.exclude&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;**/node_modules&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;**/bower_components&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;**/*.code-search&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;**/build&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;**/install&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;**/log&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;cSpell.words&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;RTPS&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;athackst&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;autopep&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;cmake&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;cppcheck&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;cpplint&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;DCMAKE&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;deque&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;devcontainer&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;ints&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;noqa&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;pytest&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;rclcpp&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;rclpy&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;repos&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;rosdep&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;rosdistro&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;rosidl&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;RTPS&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;uncrustify&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;Wextra&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;Wpedantic&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;xmllint&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;cSpell.allowCompoundWords&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;cSpell.ignorePaths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;**/package-lock.json&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;**/node_modules/**&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;**/vscode-extension/**&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;**/.git/objects/**&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;.vscode&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;.vscode-insiders&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;.devcontainer/devcontainer.json&quot;</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Jazzy</label><div class="sd-tab-content docutils">
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">settings.json</span><a class="headerlink" href="#id3" title="Lien vers ce code"></a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;editor.detectIndentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;editor.formatOnPaste&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;editor.wordWrap&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;C_Cpp.clang_format_sortIncludes&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;terminal.integrated.scrollback&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;workbench.editor.enablePreview&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;[restructuredtext]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;editor.tabSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;files.associations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Test.xml&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;*.xunit.xml&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;*.gtest.xml&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;*.repos&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yaml&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;*.world&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xml&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;*.xacro&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xml&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;editor.tabSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;editor.rulers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="mi">100</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;python.analysis.extraPaths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;/opt/ros/jazzy/lib/python3.10/site-packages/&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="c1">// Autocomplete from ros python packages</span>
+<span class="w">    </span><span class="nt">&quot;python.autoComplete.extraPaths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;/opt/ros/jazzy/lib/python3.10/site-packages/&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="c1">// Environment file lets vscode find python files within workspace</span>
+<span class="w">    </span><span class="nt">&quot;python.envFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/.env&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">// Use the system installed version of autopep8</span>
+<span class="w">    </span><span class="nt">&quot;python.formatting.autopep8Path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/autopep8&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;python.formatting.autopep8Args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;--max-line-length=100&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;C_Cpp.default.intelliSenseMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;linux-gcc-x86&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;C_Cpp.formatting&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;disabled&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;uncrustify.configPath.linux&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/opt/ros/jazzy/lib/python3.10/site-packages/ament_uncrustify/configuration/ament_code_style.cfg&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;[cpp]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;editor.defaultFormatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;zachflower.uncrustify&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;search.exclude&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;**/node_modules&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;**/bower_components&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;**/*.code-search&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;**/build&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;**/install&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;**/log&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;cSpell.words&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;RTPS&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;athackst&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;autopep&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;cmake&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;cppcheck&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;cpplint&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;DCMAKE&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;deque&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;devcontainer&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;ints&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;noqa&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;pytest&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;rclcpp&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;rclpy&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;repos&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;rosdep&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;rosdistro&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;rosidl&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;RTPS&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;uncrustify&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;Wextra&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;Wpedantic&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;xmllint&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;cSpell.allowCompoundWords&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;cSpell.ignorePaths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;**/package-lock.json&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;**/node_modules/**&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;**/vscode-extension/**&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;**/.git/objects/**&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;.vscode&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;.vscode-insiders&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;.devcontainer/devcontainer.json&quot;</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details><p>Dans le rapport de tests ci-dessous:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span>build/scara_bringup/Testing/20241121-1426/Test.xml: 5 tests, 0 errors, 1 failure, 0 skipped
+</span><span class="linenos">2</span>build/scara_bringup/test_results/scara_bringup/flake8.xunit.xml: 21 tests, 0 errors, 21 failures, 0 skipped
+<span class="hll"><span class="linenos">3</span>build/scara_nodes/Testing/20241121-1426/Test.xml: 4 tests, 0 errors, 1 failure, 0 skipped
+</span><span class="linenos">4</span>build/scara_nodes/test_results/scara_nodes/flake8.xunit.xml: 5 tests, 0 errors, 5 failures, 0 skipped
+<span class="linenos">5</span>
+<span class="linenos">6</span>Summary: 50 tests, 0 errors, 28 failures, 0 skipped
+</pre></div>
+</div>
+<p>Les lignes surlignées en jaune sont des fichiers qui rassemblent les erreurs pour chaque package.
+Les lignes 2 et 4 explicitent les tests qui ont échoués, dans ce cas, les tests sont des tests <code class="docutils literal notranslate"><span class="pre">flake8</span></code> de type formatage de code python.
+Ces tests sont les moins critiques car ce ne sont pas des erreurs de tests unitaires.
+Ils devront néanmoins être corrigés pour que le code soit conforme aux standards de qualité et puisse être intégré dans une branche officielle du projet.</p>
+<p>Afin de corriger ces tests rapidement, il est possible d’utiliser une fonctionnalité de vscode qui permet d’exécuter les tests directement dans l’éditeur.</p>
+<p>Il faut configurer des tâches dans le fichier <code class="docutils literal notranslate"><span class="pre">.vscode/tasks.json</span></code> du répertoire du package pour exécuter les tests.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">tasks.json</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">tasks.json</span><a class="headerlink" href="#id4" title="Lien vers ce code"></a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// See https://go.microsoft.com/fwlink/?LinkId=733558</span>
+<span class="w">    </span><span class="c1">// for the documentation about the tasks.json format</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="c1">// Build tasks</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Build workspace (default)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./build.sh&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;isDefault&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$gcc&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;debug&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Build workspace (debug)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./build.sh&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;BUILD_TYPE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Debug&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$gcc&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="c1">// Test tasks</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Run all unit tests and show results.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./test.sh&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;isDefault&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="c1">// Clean</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;clean&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Run the clean target&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;colcon build --cmake-target clean&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$gcc&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;purge&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Purge workspace by deleting all generated files.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sudo rm -fr build install log; sudo py3clean .&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="c1">// Linting and static code analysis tasks</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fix&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Reformat files with uncrustify.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ament_uncrustify --reformat src/&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uncrustify&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Lint files with uncrustify.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ament_uncrustify src/&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;presentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;panel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dedicated&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;reveal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;silent&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;clear&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;owner&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uncrustify&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uncrustify&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;fileLocation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;relative&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="c1">// just the file name message</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;regexp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^(.*)&#39;(.*)&#39;:&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cpplint&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Lint files with cpplint.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ament&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;task&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cpplint&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;src/&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$ament_cpplint&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;presentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;panel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dedicated&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;reveal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;silent&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;clear&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppcheck&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Run static code checker cppcheck.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ament&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;task&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppcheck&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;src/&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$ament_cppcheck&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;presentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;panel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dedicated&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;reveal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;silent&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;clear&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;AMENT_CPPCHECK_ALLOW_SLOW_VERSIONS&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lint_cmake&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Run lint on cmake files.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ament&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;task&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lint_cmake&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;src/&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$ament_lint_cmake&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;presentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;panel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dedicated&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;reveal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;silent&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;clear&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;flake8&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Run flake8 on python files.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ament&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;task&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;flake8&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;src/&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$ament_flake8&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;presentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;panel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dedicated&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;reveal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;silent&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;clear&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pep257&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Run pep257 on python files.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ament&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;task&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pep257&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;src/&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$ament_pep257&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;presentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;panel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dedicated&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;reveal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;silent&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;clear&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xmllint&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Run xmllint on xml files.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ament&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;task&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xmllint&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;src/&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$ament_xmllint&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;presentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;panel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dedicated&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;reveal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;silent&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;clear&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lint all&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Run all linters.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;dependsOn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;cppcheck&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;cpplint&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;flake8&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;lint_cmake&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;pep257&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;xmllint&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;uncrustify&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="c1">// Workspace editing tasks</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new ament_cmake package&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Create a new ROS cpp package from a template.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ros2 pkg create --destination-directory src --build-type ament_cmake ${input:package}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new ament_python package&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Create a new ROS python package from a template.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ros2 pkg create --destination-directory src --build-type ament_python ${input:package}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;import from workspace file&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Use vcs to import modules specified by a workspace/rosinstall file.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vcs import &lt; src/ros2.repos src&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;update workspace file&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Use vcs to update repositories in src to workspace file.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vcs export src &gt; src/ros2.repos&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;install dependencies&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Install all dependencies specified in the workspaces package.xml files.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sudo apt-get update &amp;&amp; rosdep update &amp;&amp; rosdep install --from-paths src --ignore-src -y&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;setup&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Set up the workspace&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./setup.sh&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;add submodules from .repos&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Create a git submodule for all repositories in your .repos file&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;python3 .devcontainer/repos_to_submodules.py&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;inputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;package&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;promptString&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Package name&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details><p>Ce fichier est intégralement repris du projet git: <a class="reference external" href="https://github.com/athackst/vscode_ros2_workspace">vscode_ros2_workspace d’athackst (Allison Thackston)</a></p>
+<p>Pour exécuter une tache de linter, il suffit de taper <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code> puis de taper <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Task</span></code> et de sélectionner la tâche voulue.</p>
+<p>Dans notre cas, il faut sélectionner la tâche <code class="docutils literal notranslate"><span class="pre">flake8</span></code> pour exécuter les tests de formatage de code python.</p>
+<p>De manière plus générale, pour les problèmes de linter, il est possible d’exécuter la tâche <code class="docutils literal notranslate"><span class="pre">lint</span> <span class="pre">all</span></code> qui exécute tous les tests de linter.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="p03s00_index.html" class="btn btn-neutral float-left" title="Tester le code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="../c04_collaborate_with_coders/p04s00_index.html" class="btn btn-neutral float-right" title="Les outils nécessaires pour collaborer entre codeurs" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Manuel YGUEL.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

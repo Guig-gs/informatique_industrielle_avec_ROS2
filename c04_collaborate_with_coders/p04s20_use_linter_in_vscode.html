@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utilisation d’un linter dans l’éditeur de code &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2ec175e1" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=05dadb3a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cours d'Informatique Industrielle avec ROS2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Informatique Industrielle &amp; ROS2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../c00_introduction/p00s00_index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c01_create_and_publish_doc/p01s00_index.html">Premier projet &amp; doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_first_ros2_project_pimped/p02s00_index.html">Tutoriel ROS2 épicé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c03_test_your_code/p03s00_index.html">Tester le code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p04s00_index.html">Les outils nécessaires pour collaborer entre codeurs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Travaux Pratiques</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../p00_pentograph_pencil_holder_with_rpi_and_dynamixel/p50s00_index.html">Pantographe de dessin robotisé avec Raspberry Pi et ROS2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../p01_rpi_ubuntu_as_a_ros2_robotic_platform/p51s00_index.html">Ubuntu &amp; RPi &amp; ROS2</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cours d'Informatique Industrielle avec ROS2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Utilisation d’un linter dans l’éditeur de code</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/c04_collaborate_with_coders/p04s20_use_linter_in_vscode.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="utilisation-d-un-linter-dans-l-editeur-de-code">
+<h1>Utilisation d’un linter dans l’éditeur de code<a class="headerlink" href="#utilisation-d-un-linter-dans-l-editeur-de-code" title="Lien vers cette rubrique"></a></h1>
+<section id="installation-d-un-linter-dans-vscode">
+<h2>Installation d’un linter dans vscode<a class="headerlink" href="#installation-d-un-linter-dans-vscode" title="Lien vers cette rubrique"></a></h2>
+<section id="installation-via-une-extension">
+<h3>Installation via une extension<a class="headerlink" href="#installation-via-une-extension" title="Lien vers cette rubrique"></a></h3>
+</section>
+<section id="installation-a-la-main-sans-extension">
+<h3>Installation à la main (sans extension)<a class="headerlink" href="#installation-a-la-main-sans-extension" title="Lien vers cette rubrique"></a></h3>
+</section>
+<section id="creer-une-extension-pour-un-linter">
+<h3>Créer une extension pour un linter<a class="headerlink" href="#creer-une-extension-pour-un-linter" title="Lien vers cette rubrique"></a></h3>
+</section>
+</section>
+<section id="visualisation-directe">
+<h2>Visualisation directe<a class="headerlink" href="#visualisation-directe" title="Lien vers cette rubrique"></a></h2>
+<p>Les erreurs sont alors affichées directement dans l’éditeur de code qui souligne les erreurs avec des vagues comme dans l’image ci-dessous:</p>
+<figure class="align-center">
+<img alt="../_images/vscode_rst_linter_00.png" src="../_images/vscode_rst_linter_00.png" />
+</figure>
+<p>En passant la souris sur la partie soulignée, une bulle d’information apparaît avec le message d’erreur et de la documentation sur la commande utilisée.
+L’erreur rapportée n’est pas toujours pertinente, et il est souvent très instructif de parcourir la documentation et en particulier de scruter les exemples fournis.</p>
+<p>La limite de cette visualisation c’est qu’il faut avoir le fichier ouvert à l’emplacement d’une erreur dans l’éditeur pour voir l’erreur.</p>
+</section>
+<section id="visualisation-minimap">
+<h2>Visualisation minimap<a class="headerlink" href="#visualisation-minimap" title="Lien vers cette rubrique"></a></h2>
+<p>Les erreurs apparaissent également comme des lignes en rouge dans la vue latérale <code class="docutils literal notranslate"><span class="pre">minimap</span></code> de vscode qui donne une vue d’ensemble du fichier. On peut activer cette vue en faisant un clic droit sur la barre de scrolling du fichier (à droite) et en checkant <code class="docutils literal notranslate"><span class="pre">Minimap</span></code>.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/vscode_rst_linter_01.png"><img alt="../_images/vscode_rst_linter_01.png" src="../_images/vscode_rst_linter_01.png" style="height: 200px;" />
+</a>
+</figure>
+</section>
+<section id="visualisation-dans-la-vue-problems">
+<h2>Visualisation dans la vue <code class="docutils literal notranslate"><span class="pre">Problems</span></code><a class="headerlink" href="#visualisation-dans-la-vue-problems" title="Lien vers cette rubrique"></a></h2>
+<p>Les erreurs sont également listées dans la vue <code class="docutils literal notranslate"><span class="pre">Problems</span></code> de vscode. On peut y accéder</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>en cliquant sur l’icône en forme de triangle dans la barre de status de vscode souvent située en bas à gauche de la fenêtre.</p></li>
+<li><p>en ouvrant la vue de terminal en bas et sélectionnant l’onglet <code class="docutils literal notranslate"><span class="pre">Problems</span></code>.</p></li>
+</ol>
+</div></blockquote>
+<figure class="align-center">
+<img alt="../_images/vscode_rst_linter_02.png" src="../_images/vscode_rst_linter_02.png" />
+</figure>
+<p>C’est la vue la plus intéressante car toutes les erreurs de tous les fichiers sont listées, avec un lien clickable pour se rendre directement à l’endroit de l’erreur dans le fichier.</p>
+<figure class="align-center">
+<img alt="../_images/vscode_rst_linter_03.png" src="../_images/vscode_rst_linter_03.png" />
+</figure>
+</section>
+<section id="visualiser-la-suggestion-de-formattage">
+<h2>Visualiser la suggestion de formattage<a class="headerlink" href="#visualiser-la-suggestion-de-formattage" title="Lien vers cette rubrique"></a></h2>
+</section>
+<section id="appliquer-la-suggestion-de-formattage">
+<h2>Appliquer la suggestion de formattage<a class="headerlink" href="#appliquer-la-suggestion-de-formattage" title="Lien vers cette rubrique"></a></h2>
+</section>
+<section id="automatiquement-formater-sans-verification-de-l-utilisateur-a-chaque-sauvegarde">
+<h2>Automatiquement formater (sans vérification de l’utilisateur) à chaque sauvegarde<a class="headerlink" href="#automatiquement-formater-sans-verification-de-l-utilisateur-a-chaque-sauvegarde" title="Lien vers cette rubrique"></a></h2>
+</section>
+<section id="que-faire-si-une-suggestion-de-formatage-est-incorrecte">
+<h2>Que faire si une suggestion de formatage est incorrecte ?<a class="headerlink" href="#que-faire-si-une-suggestion-de-formatage-est-incorrecte" title="Lien vers cette rubrique"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Manuel YGUEL.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

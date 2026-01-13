@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Création d’une première documentation sphinx &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2ec175e1" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=05dadb3a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Publier la documentation" href="p01s05_www_doc.html" />
+    <link rel="prev" title="Introduction au versionning avec git" href="p01s03_git.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cours d'Informatique Industrielle avec ROS2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Informatique Industrielle &amp; ROS2</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../c00_introduction/p00s00_index.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="p01s00_index.html">Premier projet &amp; doc</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="p01s01_quality_docs.html">Exemple de documentations de qualité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01s02_create_and_publish_doc.html">Création du projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01s03_git.html">Introduction au versionning avec git</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Création d’une première documentation sphinx</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installer-sphinx">Installer sphinx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurer-la-documentation">Configurer la documentation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#separation-source-build">Séparation source/build</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nom-du-projet">Nom du projet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examiner-les-fichiers-crees-par-sphinx-quickstart-du-point-de-vue-de-git">Examiner les fichiers créés par sphinx-quickstart du point de vue de git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editer-les-fichiers-de-configuration-de-sphinx">Éditer les fichiers de configuration de sphinx</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#creer-la-documentation">Créer la documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sauvegarder-la-documentation-avec-git">Sauvegarder la documentation avec git</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="p01s05_www_doc.html">Publier la documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_first_ros2_project_pimped/p02s00_index.html">Tutoriel ROS2 épicé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c03_test_your_code/p03s00_index.html">Tester le code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c04_collaborate_with_coders/p04s00_index.html">Les outils nécessaires pour collaborer entre codeurs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Travaux Pratiques</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../p00_pentograph_pencil_holder_with_rpi_and_dynamixel/p50s00_index.html">Pantographe de dessin robotisé avec Raspberry Pi et ROS2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../p01_rpi_ubuntu_as_a_ros2_robotic_platform/p51s00_index.html">Ubuntu &amp; RPi &amp; ROS2</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cours d'Informatique Industrielle avec ROS2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="p01s00_index.html">Premier projet &amp; doc</a></li>
+      <li class="breadcrumb-item active">Création d’une première documentation sphinx</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/c01_create_and_publish_doc/p01s04_create_doc.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="creation-d-une-premiere-documentation-sphinx">
+<h1>Création d’une première documentation sphinx<a class="headerlink" href="#creation-d-une-premiere-documentation-sphinx" title="Lien vers cette rubrique"></a></h1>
+<section id="installer-sphinx">
+<h2>Installer sphinx<a class="headerlink" href="#installer-sphinx" title="Lien vers cette rubrique"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-f<span class="w"> </span>python3-sphinx
+</pre></div>
+</div>
+<p>Créer un répertoire pour la documentation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>doc/sphinx
+</pre></div>
+</div>
+<p>Créer un fichier requirments.txt pour les dépendances de la documentation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>~/info_indus/info_indus_tutorial/doc/sphinx/requirements.txt
+</pre></div>
+</div>
+<p>Ajouter les dépendances suivantes dans le fichier <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> avec vscode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mistune</span> <span class="o">&lt;</span> <span class="mf">1.0.0</span>
+<span class="n">myst</span><span class="o">-</span><span class="n">parser</span>
+<span class="n">sphinx</span><span class="o">-</span><span class="n">copybutton</span>
+<span class="n">sphinx</span><span class="o">-</span><span class="n">tabs</span>
+<span class="n">sphinx_rtd_theme</span>
+<span class="n">sphinx</span><span class="o">-</span><span class="n">design</span>
+</pre></div>
+</div>
+<p>Installer les dépendances:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/info_indus/info_indus_tutorial/doc/sphinx
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="configurer-la-documentation">
+<h2>Configurer la documentation<a class="headerlink" href="#configurer-la-documentation" title="Lien vers cette rubrique"></a></h2>
+<p>Initialiser la documentation avec les outils sphinx:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/info_indus/info_indus_tutorial/doc
+sphinx-quickstart<span class="w"> </span>sphinx
+</pre></div>
+</div>
+<p>Répondre aux questions posées par sphinx-quickstart.</p>
+<section id="separation-source-build">
+<h3>Séparation source/build<a class="headerlink" href="#separation-source-build" title="Lien vers cette rubrique"></a></h3>
+<p>Il est judicieux de séparer les sources du répertoire de build car du point de vue de la sauvegarde et du versionnement du projet avec git, on peut suivre tout ce qui se trouve dans le répertoire <code class="docutils literal notranslate"><span class="pre">source</span></code>.
+On ne versionne en effet pas le répertoire de build, car il contient des éléments générés automatiquement donc qui peuvent être intégralement déduits de tous les autres fichiers versionnés.
+On gagne ainsi beaucoup en quantité de données versionnées, c’est donc un gain de resources de temps de calcul et d’espace mémoire.</p>
+</section>
+<section id="nom-du-projet">
+<h3>Nom du projet<a class="headerlink" href="#nom-du-projet" title="Lien vers cette rubrique"></a></h3>
+<p>Pour le nom du projet, il faut choisir un nom le plus court possible et qui soit aussi représentatif que possible du projet et de son usage.
+Il est courant, par exemple, de préfixer une librairie python avec le préfix <code class="docutils literal notranslate"><span class="pre">py</span></code>.</p>
+<p>Pour ce projet, la règle que nous allons choisir est la suivante: utilisez les initiales des personnes de votre groupe suivi de <code class="docutils literal notranslate"><span class="pre">info_indus_tutorial</span></code>. Par exemple, pour le groupe d” Amélie POULAIN, Jean DUPONT et Nikita TESTU, le nom du projet sera <code class="docutils literal notranslate"><span class="pre">PaDjTn_info_indus_tutorial</span></code>.</p>
+</section>
+<section id="examiner-les-fichiers-crees-par-sphinx-quickstart-du-point-de-vue-de-git">
+<h3>Examiner les fichiers créés par sphinx-quickstart du point de vue de git<a class="headerlink" href="#examiner-les-fichiers-crees-par-sphinx-quickstart-du-point-de-vue-de-git" title="Lien vers cette rubrique"></a></h3>
+<p>Regarder avec git les nouveaux fichiers créés:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>status
+</pre></div>
+</div>
+</section>
+<section id="editer-les-fichiers-de-configuration-de-sphinx">
+<h3>Éditer les fichiers de configuration de sphinx<a class="headerlink" href="#editer-les-fichiers-de-configuration-de-sphinx" title="Lien vers cette rubrique"></a></h3>
+<p>Modifier le fichier <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<ol class="arabic simple">
+<li><p>mettre-à-jour les extensions,</p></li>
+<li><p>mettre-à-jour le theme html de la documentation (<code class="code docutils literal notranslate"><span class="pre">html_theme</span></code>),</p></li>
+<li><p>donner les options pour l’extension copybutton,</p></li>
+<li><p>donner le chemin du fichier css</p></li>
+</ol>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Fichier de configuration de Sphinx (et oui! c’est du python)</span><a class="headerlink" href="#id1" title="Lien vers ce code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Configuration file for the Sphinx documentation builder.</span>
+<span class="linenos"> 2</span><span class="c1">#</span>
+<span class="linenos"> 3</span><span class="c1"># This file only contains a selection of the most common options. For a full</span>
+<span class="linenos"> 4</span><span class="c1"># list see the documentation:</span>
+<span class="linenos"> 5</span><span class="c1"># https://www.sphinx-doc.org/en/master/usage/configuration.html</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># -- Path setup --------------------------------------------------------------</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># If extensions (or modules to document with autodoc) are in another directory,</span>
+<span class="linenos">10</span><span class="c1"># add these directories to sys.path here. If the directory is relative to the</span>
+<span class="linenos">11</span><span class="c1"># documentation root, use os.path.abspath to make it absolute, like shown here.</span>
+<span class="linenos">12</span><span class="c1">#</span>
+<span class="linenos">13</span><span class="c1"># import os</span>
+<span class="linenos">14</span><span class="c1"># import sys</span>
+<span class="linenos">15</span><span class="c1"># sys.path.insert(0, os.path.abspath(&#39;.&#39;))</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="c1"># -- Project information -----------------------------------------------------</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;Cours d&#39;Informatique Industrielle avec ROS2&quot;</span>
+<span class="linenos">21</span><span class="n">copyright</span> <span class="o">=</span> <span class="s1">&#39;2024, Manuel YGUEL&#39;</span>
+<span class="linenos">22</span><span class="n">author</span> <span class="o">=</span> <span class="s1">&#39;Manuel YGUEL&#39;</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="c1"># The full version, including alpha/beta/rc tags</span>
+<span class="linenos">25</span><span class="n">release</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="c1"># -- General configuration ---------------------------------------------------</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="c1"># Add any Sphinx extension module names here, as strings. They can be</span>
+<span class="linenos">31</span><span class="c1"># extensions coming with Sphinx (named &#39;sphinx.ext.*&#39;) or your custom</span>
+<span class="linenos">32</span><span class="c1"># ones.</span>
+<span class="hll"><span class="linenos">33</span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class="hll"><span class="linenos">34</span>    <span class="s2">&quot;sphinx.ext.graphviz&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos">35</span>    <span class="s2">&quot;sphinx.ext.ifconfig&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos">36</span>    <span class="s2">&quot;sphinx.ext.intersphinx&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos">37</span>    <span class="s2">&quot;sphinx_copybutton&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos">38</span>    <span class="s2">&quot;sphinx_tabs.tabs&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos">39</span>    <span class="s2">&quot;sphinx_rtd_theme&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos">40</span>    <span class="s2">&quot;myst_parser&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="linenos">41</span>    <span class="s2">&quot;sphinx_design&quot;</span><span class="p">,</span>
+</span><span class="linenos">42</span><span class="p">]</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span><span class="n">myst_enable_extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;colon_fence&quot;</span><span class="p">]</span>
+<span class="linenos">45</span>
+<span class="linenos">46</span><span class="c1"># Add any paths that contain templates here, relative to this directory.</span>
+<span class="linenos">47</span><span class="n">templates_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_templates&#39;</span><span class="p">]</span>
+<span class="linenos">48</span>
+<span class="linenos">49</span><span class="c1"># The language for content autogenerated by Sphinx. Refer to documentation</span>
+<span class="linenos">50</span><span class="c1"># for a list of supported languages.</span>
+<span class="linenos">51</span><span class="c1">#</span>
+<span class="linenos">52</span><span class="c1"># This is also used if you do content translation via gettext catalogs.</span>
+<span class="linenos">53</span><span class="c1"># Usually you set &quot;language&quot; from the command line for these cases.</span>
+<span class="linenos">54</span><span class="n">language</span> <span class="o">=</span> <span class="s1">&#39;fr&#39;</span>
+<span class="linenos">55</span>
+<span class="linenos">56</span><span class="c1"># List of patterns, relative to source directory, that match files and</span>
+<span class="linenos">57</span><span class="c1"># directories to ignore when looking for source files.</span>
+<span class="linenos">58</span><span class="c1"># This pattern also affects html_static_path and html_extra_path.</span>
+<span class="linenos">59</span><span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;_build&quot;</span><span class="p">,</span> <span class="s2">&quot;Thumbs.db&quot;</span><span class="p">,</span> <span class="s2">&quot;.DS_Store&quot;</span><span class="p">]</span>
+<span class="linenos">60</span><span class="n">source_suffix</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.rst&quot;</span><span class="p">,</span> <span class="s2">&quot;.md&quot;</span><span class="p">]</span>
+<span class="linenos">61</span>
+<span class="linenos">62</span>
+<span class="linenos">63</span><span class="c1"># -- Options for HTML output -------------------------------------------------</span>
+<span class="linenos">64</span>
+<span class="hll"><span class="linenos">65</span><span class="c1"># The theme to use for HTML and HTML Help pages.  See the documentation for</span>
+</span><span class="linenos">66</span><span class="c1"># a list of builtin themes.</span>
+<span class="hll"><span class="linenos">67</span><span class="c1">#</span>
+</span><span class="hll"><span class="linenos">68</span><span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;sphinx_rtd_theme&#39;</span>
+</span><span class="hll"><span class="linenos">69</span>
+</span><span class="linenos">70</span><span class="n">html_sidebars</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">71</span>    <span class="s1">&#39;**&#39;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos">72</span>        <span class="s1">&#39;globaltoc.html&#39;</span><span class="p">,</span>   <span class="c1"># Use the global TOC instead of the local one</span>
+<span class="linenos">73</span>        <span class="s1">&#39;relations.html&#39;</span><span class="p">,</span>   <span class="c1"># Adds links to the previous and next chapters</span>
+<span class="linenos">74</span>        <span class="s1">&#39;searchbox.html&#39;</span><span class="p">,</span>   <span class="c1"># Adds a search box</span>
+<span class="linenos">75</span>    <span class="p">]</span>
+<span class="hll"><span class="linenos">76</span><span class="p">}</span>
+</span><span class="hll"><span class="linenos">77</span>
+</span><span class="hll"><span class="linenos">78</span><span class="c1"># -- Options for copybutton extension ----------------------------------------</span>
+</span><span class="linenos">79</span><span class="n">copybutton_prompt_text</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&gt;&gt;&gt; |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: &quot;</span>
+<span class="linenos">80</span><span class="n">copybutton_prompt_is_regexp</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">81</span>
+<span class="linenos">82</span><span class="c1"># Add any paths that contain custom static files (such as style sheets) here,</span>
+<span class="linenos">83</span><span class="c1"># relative to this directory. They are copied after the builtin static files,</span>
+<span class="linenos">84</span><span class="c1"># so a file named &quot;default.css&quot; will overwrite the builtin &quot;default.css&quot;.</span>
+<span class="linenos">85</span><span class="n">html_static_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_static&#39;</span><span class="p">]</span>
+<span class="linenos">86</span>
+<span class="linenos">87</span><span class="n">html_css_files</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos">88</span>    <span class="s2">&quot;css/custom.css&quot;</span><span class="p">,</span>
+<span class="linenos">89</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Ajouter les fichiers créés par sphinx-quickstart:</p>
+<p>Ajouter le fichier <code class="docutils literal notranslate"><span class="pre">custom.css</span></code> dans le répertoire <code class="docutils literal notranslate"><span class="pre">_static/css</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/info_indus/info_indus_tutorial/doc/sphinx/source/_static/css
+touch<span class="w"> </span>~/info_indus/info_indus_tutorial/doc/sphinx/source/_static/css/custom.css
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Fichier css custom.css</span><a class="headerlink" href="#id2" title="Lien vers ce code"></a></div>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c">/* Force line wraping in code instead of horizontal scrolling */</span>
+<span class="linenos"> 2</span><span class="nt">pre</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="k">white-space</span><span class="p">:</span><span class="w"> </span><span class="kc">pre-wrap</span><span class="w"> </span><span class="cp">!important</span><span class="p">;</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="k">word-break</span><span class="p">:</span><span class="w"> </span><span class="n">break-all</span><span class="p">;</span>
+<span class="linenos"> 5</span><span class="p">}</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c">/* Add the possibility to underline text */</span>
+<span class="linenos"> 8</span><span class="p">.</span><span class="nc">underline</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="k">text-decoration</span><span class="p">:</span><span class="w"> </span><span class="kc">underline</span><span class="p">;</span>
+<span class="linenos">10</span><span class="p">}</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c">/* This allows the content to use most of the screen */</span>
+<span class="linenos">13</span><span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">min-width</span><span class="o">:</span><span class="w"> </span><span class="nt">1200px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">14</span><span class="w">    </span><span class="p">.</span><span class="nc">wy-nav-content</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">15</span><span class="w">        </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">95</span><span class="kt">%</span><span class="p">;</span>
+<span class="linenos">16</span><span class="w">        </span><span class="c">/* This allows the content to use most of the screen */</span>
+<span class="linenos">17</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">18</span><span class="p">}</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="c">/** Allow caption from toctree to wrap nicely in sidebar */</span>
+<span class="linenos">21</span><span class="p">.</span><span class="nc">wy-menu</span><span class="w"> </span><span class="p">.</span><span class="nc">caption-text</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">22</span><span class="w">    </span><span class="k">white-space</span><span class="p">:</span><span class="w"> </span><span class="kc">normal</span><span class="p">;</span>
+<span class="linenos">23</span><span class="w">    </span><span class="k">word-wrap</span><span class="p">:</span><span class="w"> </span><span class="kc">break-word</span><span class="p">;</span>
+<span class="linenos">24</span><span class="w">    </span><span class="k">overflow-wrap</span><span class="p">:</span><span class="w"> </span><span class="kc">break-word</span><span class="p">;</span>
+<span class="linenos">25</span><span class="w">    </span><span class="k">line-height</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">;</span>
+<span class="linenos">26</span><span class="w">    </span><span class="c">/* Increase line height to prevent overlap */</span>
+<span class="linenos">27</span><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+<span class="linenos">28</span><span class="w">    </span><span class="c">/* Ensure the element takes up full width */</span>
+<span class="linenos">29</span><span class="p">}</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="p">.</span><span class="nc">w_margins</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">32</span><span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mf">1.25</span><span class="kt">rem</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="linenos">33</span><span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">95</span><span class="kt">%</span><span class="p">;</span>
+<span class="linenos">34</span><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+<span class="linenos">35</span><span class="p">}</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span><span class="c">/* Ensure images are responsive and centered */</span>
+<span class="linenos">38</span><span class="p">.</span><span class="nc">w_margins</span><span class="w"> </span><span class="nt">img</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">39</span><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+<span class="linenos">40</span><span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="linenos">41</span><span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="linenos">42</span><span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="linenos">43</span><span class="p">}</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="p">.</span><span class="nc">w_margins</span><span class="w"> </span><span class="p">.</span><span class="nc">caption</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">46</span><span class="w">    </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="linenos">47</span><span class="w">    </span><span class="k">font-style</span><span class="p">:</span><span class="w"> </span><span class="kc">italic</span><span class="p">;</span>
+<span class="linenos">48</span><span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#363636</span><span class="p">;</span>
+<span class="linenos">49</span><span class="w">    </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">rem</span><span class="p">;</span>
+<span class="linenos">50</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="creer-la-documentation">
+<h2>Créer la documentation<a class="headerlink" href="#creer-la-documentation" title="Lien vers cette rubrique"></a></h2>
+<p>Depuis le répertoire <code class="docutils literal notranslate"><span class="pre">sphinx</span></code> faire:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/info_indus/info_indus_tutorial/doc/sphinx
+make<span class="w"> </span>html
+</pre></div>
+</div>
+<p>La documentation est un site statique html qui se trouve dans le répertoire <code class="docutils literal notranslate"><span class="pre">build/html</span></code>.
+Le fichier <code class="docutils literal notranslate"><span class="pre">index.html</span></code> est la page d’accueil de la documentation.
+Ouvrir la documentation avec un navigateur web, par exemple firefox:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>firefox<span class="w"> </span>~/info_indus/info_indus_tutorial/doc/sphinx/build/html/index.html
+</pre></div>
+</div>
+</section>
+<section id="sauvegarder-la-documentation-avec-git">
+<h2>Sauvegarder la documentation avec git<a class="headerlink" href="#sauvegarder-la-documentation-avec-git" title="Lien vers cette rubrique"></a></h2>
+<p>Voir l’état de votre dépôt git:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>status
+</pre></div>
+</div>
+<p>Ajouter les fichiers de la documentation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/info_indus/info_indus_tutorial/doc/sphinx
+git<span class="w"> </span>add<span class="w"> </span><span class="nb">source</span>
+git<span class="w"> </span>add<span class="w"> </span>Makefile<span class="w"> </span>make.bat<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p>Fair le commit des modifications:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;First commit of the documentation&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="p01s03_git.html" class="btn btn-neutral float-left" title="Introduction au versionning avec git" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="p01s05_www_doc.html" class="btn btn-neutral float-right" title="Publier la documentation" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Manuel YGUEL.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

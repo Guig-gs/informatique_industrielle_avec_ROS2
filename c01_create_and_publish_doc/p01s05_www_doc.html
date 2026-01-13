@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publier la documentation &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2ec175e1" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=05dadb3a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Tutoriel ROS2 épicé" href="../c02_first_ros2_project_pimped/p02s00_index.html" />
+    <link rel="prev" title="Création d’une première documentation sphinx" href="p01s04_create_doc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cours d'Informatique Industrielle avec ROS2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Informatique Industrielle &amp; ROS2</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../c00_introduction/p00s00_index.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="p01s00_index.html">Premier projet &amp; doc</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="p01s01_quality_docs.html">Exemple de documentations de qualité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01s02_create_and_publish_doc.html">Création du projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01s03_git.html">Introduction au versionning avec git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01s04_create_doc.html">Création d’une première documentation sphinx</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Publier la documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creer-un-compte-sur-github">Créer un compte sur github</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creer-un-depot-sur-github">Créer un dépôt sur github</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creer-une-cle-ssh-et-l-ajouter-a-github">Créer une clé ssh et l’ajouter à github</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#poussez-le-projet-sur-github">Poussez le projet sur github</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#changement-de-nom-de-la-branche-principale">Changement de nom de la branche principale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pousser-le-code-sur-github">Pousser le code sur github</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#creer-le-workflow-git-et-voir-la-documentation-apparaitre-sur-le-web-en-temps-reel">Créer le workflow git et voir la documentation apparaître sur le web en temps réel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_first_ros2_project_pimped/p02s00_index.html">Tutoriel ROS2 épicé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c03_test_your_code/p03s00_index.html">Tester le code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c04_collaborate_with_coders/p04s00_index.html">Les outils nécessaires pour collaborer entre codeurs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Travaux Pratiques</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../p00_pentograph_pencil_holder_with_rpi_and_dynamixel/p50s00_index.html">Pantographe de dessin robotisé avec Raspberry Pi et ROS2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../p01_rpi_ubuntu_as_a_ros2_robotic_platform/p51s00_index.html">Ubuntu &amp; RPi &amp; ROS2</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cours d'Informatique Industrielle avec ROS2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="p01s00_index.html">Premier projet &amp; doc</a></li>
+      <li class="breadcrumb-item active">Publier la documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/c01_create_and_publish_doc/p01s05_www_doc.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="publier-la-documentation">
+<h1>Publier la documentation<a class="headerlink" href="#publier-la-documentation" title="Lien vers cette rubrique"></a></h1>
+<p>Nous allons maintenant publier la documentation sur le web mais aussi sauvegarder notre projet sur un serveur git distant afin de le partager avec d’autres personnes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour pouvoir partager le projet et sa documentation, il faut que le projet soit sur un serveur git distant, accessible par tout utilisateur que vous avez autorisé et tout le temps.
+Dans ce tutoriel nous allons créer un projet publique sur <code class="docutils literal notranslate"><span class="pre">github</span></code></p>
+</div>
+<section id="creer-un-compte-sur-github">
+<h2>Créer un compte sur github<a class="headerlink" href="#creer-un-compte-sur-github" title="Lien vers cette rubrique"></a></h2>
+<p>Si vous avez déjà un compte github, vous pouvez passer à la section suivante et utiliser votre compte.</p>
+<p>Pour créer un compte sur github, allez sur le site <a class="reference external" href="https://github.com/">github</a> et cliquez sur le bouton <code class="docutils literal notranslate"><span class="pre">Sign</span> <span class="pre">up</span></code> en haut à droite ou cliquez sur le lien: <a class="reference external" href="https://github.com/signup">github signup</a>. Remplissez les informations demandées et cliquez sur le bouton <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">account</span></code>.</p>
+</section>
+<section id="creer-un-depot-sur-github">
+<h2>Créer un dépôt sur github<a class="headerlink" href="#creer-un-depot-sur-github" title="Lien vers cette rubrique"></a></h2>
+<p>Une fois connecté sur github, vous pouvez créer un nouveau dépôt en cliquant sur le bouton <code class="docutils literal notranslate"><span class="pre">New</span></code> en haut à droite ou en cliquant sur le lien: <a class="reference external" href="https://github.com/new">github new repository</a>.</p>
+<p>Remplissez les informations demandées:
+et appelez votre dépôt <code class="docutils literal notranslate"><span class="pre">info_indus_tutorial</span></code>.</p>
+<section id="creer-une-cle-ssh-et-l-ajouter-a-github">
+<h3>Créer une clé ssh et l’ajouter à github<a class="headerlink" href="#creer-une-cle-ssh-et-l-ajouter-a-github" title="Lien vers cette rubrique"></a></h3>
+<p>Pour pouvoir pousser votre projet sur github, il est recommandé d’utiliser une clé ssh. Pour créer une clé ssh, ouvrez un terminal et tapez la commande suivante:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;your_email@example.com&quot;</span><span class="w"> </span>-f<span class="w"> </span>~/.ssh/id_ed25519_info_indus_tutorial
+</pre></div>
+</div>
+<p>Remplacez <code class="docutils literal notranslate"><span class="pre">your_email&#64;example.com</span></code> par votre email.</p>
+<p>Maintenant vous allez ajouter la clé ssh à votre compte github. Pour cela, copiez le contenu de la clé publique dans le presse-papier:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>~/.ssh/id_ed25519_info_indus_tutorial.pub
+</pre></div>
+</div>
+<p>Allez sur la page de votre compte github et cliquez sur votre photo de profil en haut à droite, puis cliquez sur <code class="docutils literal notranslate"><span class="pre">Settings</span></code>. Dans la colonne de gauche, cliquez sur <code class="docutils literal notranslate"><span class="pre">SSH</span> <span class="pre">and</span> <span class="pre">GPG</span> <span class="pre">keys</span></code> et enfin sur le bouton <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">SSH</span> <span class="pre">key</span></code>. Collez le contenu de la clé publique dans le champ <code class="docutils literal notranslate"><span class="pre">Key</span></code> et cliquez sur le bouton <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">SSH</span> <span class="pre">key</span></code>.</p>
+<p>Vous pouvez maintenant ajouter votre clé à l’agent ssh, cela vous évitera de taper votre mot de passe à chaque fois que vous poussez sur github:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-agent<span class="w"> </span>/bin/bash
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-add<span class="w"> </span>~/.ssh/id_ed25519_info_indus_tutorial
+</pre></div>
+</div>
+</section>
+</section>
+<section id="poussez-le-projet-sur-github">
+<h2>Poussez le projet sur github<a class="headerlink" href="#poussez-le-projet-sur-github" title="Lien vers cette rubrique"></a></h2>
+<p>Pour pousser le projet sur github, il faut ajouter le dépôt distant à votre dépôt local et pousser les modifications.</p>
+<p>Pour trouver l’adresse du dépôt distant à utiliser pour pousser votre projet, allez sur la page de votre dépôt github et copiez l’adresse du dépôt.</p>
+<p>Vous avez besoin de l’adresse ssh du dépôt (voir la procédure pas à pas). La procédure animée montre quant-à-elle la procédure pour obtenir l’adresse https du dépôt. Elles sont identiques jusqu’au moment où vous choisissez le type d’adresse du dépôt à copier.</p>
+<p>L’adresse ssh vous permet de pousser sans taper de mot de passe tandis qu’avec l’adresse https vous serez forcés d’entrer votre mot de passe à chaque fois que vous poussez. Par contre, comme le dépôt est public, vous pouvez utiliser l’adresse https sans aucune configuration pour copier le dépôt (le cloner) nous verrons plus loin où cela peut être utile.</p>
+<p id="index-0">Trouver l’adresse du dépôt distant pour les opérations de clone, pull, push, etc.</p>
+<div class="sphinx-tabs docutils container" id="get-git-remote-project-address">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Procédure animée (https)</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Procédure pas à pas (ssh)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><figure class="align-center">
+<a class="reference internal image-reference" href="../_images/access_https_git_clone_address.gif"><img alt="../_images/access_https_git_clone_address.gif" src="../_images/access_https_git_clone_address.gif" style="width: 80%;" />
+</a>
+</figure>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><figure class="align-center">
+<a class="reference internal image-reference" href="../_images/get_git_remote_project_address_01.png"><img alt="../_images/get_git_remote_project_address_01.png" src="../_images/get_git_remote_project_address_01.png" style="width: 80%;" />
+</a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/get_git_remote_project_address_02.png"><img alt="../_images/get_git_remote_project_address_02.png" src="../_images/get_git_remote_project_address_02.png" style="width: 80%;" />
+</a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/get_git_remote_project_address_03.png"><img alt="../_images/get_git_remote_project_address_03.png" src="../_images/get_git_remote_project_address_03.png" style="width: 80%;" />
+</a>
+</figure>
+</div></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>MY_GIT_REMOTE_ADDRESS
+</pre></div>
+</div>
+<p>Remplacez <code class="docutils literal notranslate"><span class="pre">MY_GIT_REMOTE_ADDRESS</span></code> par l’adresse du dépôt distant que vous venez de copier.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il y a une autre manière de récupérer l’adresse du dépôt gihub utilisable pour les opérations de clone, pull, push, etc. C’est en utilisant la commande suivante: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">get-url</span> <span class="pre">origin</span></code> . D’un point de vue mémo-techique, j’utilise une commande plus simple: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code> qui me donne l’adresse des dépôts distants et leur nom (<code class="docutils literal notranslate"><span class="pre">origin</span></code> est celui qui nous intéresse ici). Cette commande est plus simple à retenir pour 2 raisons en plus d’être plus courte: 1) <code class="docutils literal notranslate"><span class="pre">remote</span></code> design le dépôt distant, 2) <code class="docutils literal notranslate"><span class="pre">-v</span></code> pour verbose, c’est-à-dire afficher les informations de manière détaillée, c’est l’option courante dans le monde des commandes linux pour obtenir plus d’informations.</p>
+</div>
+<section id="changement-de-nom-de-la-branche-principale">
+<h3>Changement de nom de la branche principale<a class="headerlink" href="#changement-de-nom-de-la-branche-principale" title="Lien vers cette rubrique"></a></h3>
+<p>Effectuez les commandes suivantes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>-a
+git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>rolling
+git<span class="w"> </span>branch<span class="w"> </span>-a
+</pre></div>
+</div>
+<p>The branch commands permet de renommer la branche principale (appelée main ou master) en <code class="docutils literal notranslate"><span class="pre">rolling</span></code> en accord avec la politique de nommage de ROS2.</p>
+</section>
+<section id="pousser-le-code-sur-github">
+<h3>Pousser le code sur github<a class="headerlink" href="#pousser-le-code-sur-github" title="Lien vers cette rubrique"></a></h3>
+<p>Voyons maintenant la commande pour pousser le code sur github:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>rolling
+</pre></div>
+</div>
+<p>C’est seulement la première fois que vous poussez une branche sur un dépôt distant que vous devez utiliser l’option <code class="docutils literal notranslate"><span class="pre">-u</span> <span class="pre">remote_reopsitory</span> <span class="pre">local</span> <span class="pre">branch</span></code>. Cette option définit la branche en amont pour la branche que vous poussez. Après cela, vous pouvez utiliser <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> sans l’option <code class="docutils literal notranslate"><span class="pre">-u</span></code>.</p>
+<p>Maintenant vous pouvez aller sur la page de votre dépôt github et rafraîchir la page.
+Vous devriez voir les fichiers de votre projet s’afficher sur github.</p>
+</section>
+</section>
+<section id="creer-le-workflow-git-et-voir-la-documentation-apparaitre-sur-le-web-en-temps-reel">
+<h2>Créer le workflow git et voir la documentation apparaître sur le web en temps réel<a class="headerlink" href="#creer-le-workflow-git-et-voir-la-documentation-apparaitre-sur-le-web-en-temps-reel" title="Lien vers cette rubrique"></a></h2>
+<p>Regarder les branches existantes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>-a
+</pre></div>
+</div>
+<p>Créer la branche <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> vide:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>switch<span class="w"> </span>--orphan<span class="w"> </span>gh-pages
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>-a
+</pre></div>
+</div>
+<p>Créer un fichier sur cette branche nommée <code class="docutils literal notranslate"><span class="pre">.gitkeep</span></code> cela permet de garder le répertoire vide et de pouvoir pousser la branche sur github:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>.gitkeep
+git<span class="w"> </span>add<span class="w"> </span>.gitkeep
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;First commit of the gh-pages branch&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>gh-pages
+git<span class="w"> </span>checkout<span class="w"> </span>rolling
+</pre></div>
+</div>
+<p>Nous allons créer un fichier spécial qui va dire à github de créer et de publier la documentation à chaque fois qu’un changement est fait sur la branche rolling</p>
+<p>Créer le fichier <code class="docutils literal notranslate"><span class="pre">.github/workflows/documentation.yml</span></code> à la racine du projet git:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>.github/workflows
+touch<span class="w"> </span>.github/workflows/documentation.yml
+</pre></div>
+</div>
+<p>Ajouter le contenu suivant dans le fichier <code class="docutils literal notranslate"><span class="pre">.github/workflows/documentation.yml</span></code>:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<span id="github-workflow-doc"></span><div class="code-block-caption"><span class="caption-text">Fichier de CI (action de workflow github) documentation.yml</span><a class="headerlink" href="#id1" title="Lien vers ce code"></a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Documentation</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="nt">on</span><span class="p">:</span>
+<span class="linenos"> 4</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">rolling</span><span class="p p-Indicator">]</span>
+<span class="linenos"> 6</span><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="nt">jobs</span><span class="p">:</span>
+<span class="linenos"> 9</span><span class="w">  </span><span class="nt">build_documentation</span><span class="p">:</span>
+<span class="linenos">10</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-22.04</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="linenos">13</span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="linenos">16</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="linenos">17</span><span class="w">          </span><span class="no">sudo apt-get update -qq</span>
+<span class="linenos">18</span><span class="w">          </span><span class="no">sudo apt-get install -y -qq python3-sphinx</span>
+<span class="linenos">19</span><span class="w">          </span><span class="no">cd ./doc/sphinx/</span>
+<span class="linenos">20</span><span class="w">          </span><span class="no">python3 -m venv .venv</span>
+<span class="linenos">21</span><span class="w">          </span><span class="no">source .venv/bin/activate</span>
+<span class="linenos">22</span><span class="w">          </span><span class="no">pip install -r requirements.txt</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build documentation</span>
+<span class="linenos">25</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="linenos">26</span><span class="w">          </span><span class="no">cd ./doc/sphinx/</span>
+<span class="linenos">27</span><span class="w">          </span><span class="no">source .venv/bin/activate</span>
+<span class="linenos">28</span><span class="w">          </span><span class="no">make html</span>
+<span class="linenos">29</span><span class="w">          </span><span class="no">cd ../..</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to GitHub Pages</span>
+<span class="linenos">32</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">peaceiris/actions-gh-pages@v3</span>
+<span class="linenos">33</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="linenos">34</span><span class="w">          </span><span class="nt">github_token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
+<span class="linenos">35</span><span class="w">          </span><span class="nt">publish_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./doc/sphinx/build/html</span>
+<span class="linenos">36</span><span class="w">          </span><span class="nt">force_orphan</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</div>
+<p>Modifiez la ligne surlignée du fichier de workflow commençant par <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">...</span></code>, pour que dans le workflow ce soit bien votre projet qui soit téléchargé. Remplacez <code class="docutils literal notranslate"><span class="pre">https://github.com/yguel/informatique_industrielle_avec_ROS2.git</span></code> par l’adresse <code class="docutils literal notranslate"><span class="pre">HTTPS</span></code> de votre dépôt github (MY_GIT_REMOTE_ADDRESS que vous pouvez récupérer en suivant la <a class="reference internal" href="#get-git-remote-project-address"><span class="std std-ref">procédure ci-dessus</span></a> (procédure pas-à-pas). Nous utilisons ici, l’adresse <code class="docutils literal notranslate"><span class="pre">HTTPS</span></code> pour que le workflow n’est pas besoin de code d’accès pour cloner le dépôt. Comme le dépôt est publique c’est la méthode d’accès la plus simple pour le workflow.</p>
+<p>Par contre pour modifier le dépôt: action <code class="docutils literal notranslate"><span class="pre">push</span></code>, il faut forcément des autorisations car le dépôt n’est pas en écriture pour tout le monde. C’est pour cela que dans le ::ref:` workflow&lt;github_workflow_doc&gt;`, l’action <code class="docutils literal notranslate"><span class="pre">Push</span> <span class="pre">changes</span></code> lignes 49-54, a un champ particulier <code class="docutils literal notranslate"><span class="pre">github_token</span></code> qui permet d’authentifier le workflow pour qu’il puisse pousser les modifications sur le dépôt. Le mot de passe est généré automatiquement par github, et les actions github auront le droit de pousser sur le dépôt une fois que vous aurez fait <a class="reference internal" href="#setup-git-actions"><span class="std std-ref">les modifications dans les settings du projet ci-après</span></a>.</p>
+<p>Il faut maintenant faire quelques modifications dans les settings du projet sur github
+Il faut:</p>
+<ol class="arabic">
+<li><p>aller dans les settings du projet</p></li>
+<li><p>aller dans la section <code class="docutils literal notranslate"><span class="pre">Actions</span></code></p></li>
+<li><p>aller dans la sous-section <code class="docutils literal notranslate"><span class="pre">General</span></code></p></li>
+<li><p>cocher les 3 cases :</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Allow</span> <span class="pre">all</span> <span class="pre">actions</span> <span class="pre">and</span> <span class="pre">reusable</span> <span class="pre">worflows</span></code> (normalement ok par défaut)</p></li>
+<li><p>Dans la section <code class="docutils literal notranslate"><span class="pre">Workflow</span> <span class="pre">permissions</span></code> cocher</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Read</span> <span class="pre">and</span> <span class="pre">write</span> <span class="pre">permissions</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Allow</span> <span class="pre">GitHub</span> <span class="pre">Actions</span> <span class="pre">to</span> <span class="pre">create</span> <span class="pre">and</span> <span class="pre">approve</span> <span class="pre">pull</span> <span class="pre">requests</span></code></p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+<figure class="align-center" id="setup-git-actions">
+<a class="reference internal image-reference" href="../_images/setup_git_actions_01.png"><img alt="../_images/setup_git_actions_01.png" src="../_images/setup_git_actions_01.png" style="width: 80%;" />
+</a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/setup_git_actions_02.png"><img alt="../_images/setup_git_actions_02.png" src="../_images/setup_git_actions_02.png" style="width: 80%;" />
+</a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/setup_git_actions_03.png"><img alt="../_images/setup_git_actions_03.png" src="../_images/setup_git_actions_03.png" style="width: 80%;" />
+</a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/setup_git_actions_04.png"><img alt="../_images/setup_git_actions_04.png" src="../_images/setup_git_actions_04.png" style="width: 80%;" />
+</a>
+</figure>
+<p>Maintenant vous pouvez ajouter le fichier de workflow à git et pusher:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.github/workflows/documentation.yml
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add github action to build and publish the documentation&quot;</span>
+git<span class="w"> </span>push
+</pre></div>
+</div>
+<p>Maintenant, vous pouvez voir la documentation apparaître sur le web en temps réel en allant sur la page de votre dépôt github et en cliquant sur le lien <code class="docutils literal notranslate"><span class="pre">Actions</span></code>.</p>
+<p>Vous avez peut-être besoin de faire un nouveau commit pour que le workflow se déclenche.</p>
+<p>Petit exercice: modifiez le fichier <code class="docutils literal notranslate"><span class="pre">doc/sphinx/source/index.rst</span></code> et ajoutez une ligne de texte. Poussez les modifications sur github à l’aide des commandes git : <code class="docutils literal notranslate"><span class="pre">add,</span> <span class="pre">commit</span> <span class="pre">puis</span> <span class="pre">push</span></code> et regardez la documentation se mettre à jour en temps réel.</p>
+<p>Allez sur l’onglet <code class="docutils literal notranslate"><span class="pre">Actions</span></code> de votre dépôt github pour voir le workflow se déclencher et construire la documentation, vous pouvez suivre en temps réel ce qui se passe et notamment voir les logs ou les erreurs s’il y en a.</p>
+<figure class="align-center" id="workflow-in-action">
+<a class="reference internal image-reference" href="../_images/workflow_in_action.gif"><img alt="../_images/workflow_in_action.gif" src="../_images/workflow_in_action.gif" style="width: 80%;" />
+</a>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="p01s04_create_doc.html" class="btn btn-neutral float-left" title="Création d’une première documentation sphinx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="../c02_first_ros2_project_pimped/p02s00_index.html" class="btn btn-neutral float-right" title="Tutoriel ROS2 épicé" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Manuel YGUEL.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

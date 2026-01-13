@@ -1,0 +1,189 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comprendre git &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2ec175e1" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=05dadb3a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cours d'Informatique Industrielle avec ROS2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Informatique Industrielle &amp; ROS2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../c00_introduction/p00s00_index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01s00_index.html">Premier projet &amp; doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_first_ros2_project_pimped/p02s00_index.html">Tutoriel ROS2 épicé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c03_test_your_code/p03s00_index.html">Tester le code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c04_collaborate_with_coders/p04s00_index.html">Les outils nécessaires pour collaborer entre codeurs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Travaux Pratiques</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../p00_pentograph_pencil_holder_with_rpi_and_dynamixel/p50s00_index.html">Pantographe de dessin robotisé avec Raspberry Pi et ROS2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../p01_rpi_ubuntu_as_a_ros2_robotic_platform/p51s00_index.html">Ubuntu &amp; RPi &amp; ROS2</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cours d'Informatique Industrielle avec ROS2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Comprendre git</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/c01_create_and_publish_doc/p01s06_understand_git.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="comprendre-git">
+<h1>Comprendre git<a class="headerlink" href="#comprendre-git" title="Lien vers cette rubrique"></a></h1>
+<p id="index-0">Git fonctionne en enregistrant les différences entre les versions d’un fichier.
+Pour cela il utilise un système de points de contrôle appelés commits.
+Un commit est un point de contrôle qui enregistre l’état des fichiers à un instant donné. Il est possible de revenir à un commit précédent à tout moment.
+Ce qui est fondamental à comprendre c’est que git ne stocke pas les fichiers mais les différences entre les fichiers.</p>
+<section id="comment-git-calcule-les-differences-entre-2-versions-d-un-meme-fichier">
+<h2>Comment git calcule les différences entre 2 versions d’un même fichier ?<a class="headerlink" href="#comment-git-calcule-les-differences-entre-2-versions-d-un-meme-fichier" title="Lien vers cette rubrique"></a></h2>
+<p>Git utilise un algorithme de différences pour calculer les différences entre 2 versions d’un fichier.</p>
+<p>L’utilitaire de ligne de commande <code class="docutils literal notranslate"><span class="pre">diff</span></code> permet de calculer et de visualiser les différences entre 2 fichiers.
+Sous linux, vous pouvez l’utiliser en ligne de commande de la manière suivante :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>diff<span class="w"> </span>fichier1<span class="w"> </span>fichier2
+</pre></div>
+</div>
+<p>Il produit un affichage de la différence entre les 2 fichiers.</p>
+<section id="les-outils-pour-visualiser-les-differences-entre-2-fichiers">
+<h3>Les outils pour visualiser les différences entre 2 fichiers<a class="headerlink" href="#les-outils-pour-visualiser-les-differences-entre-2-fichiers" title="Lien vers cette rubrique"></a></h3>
+<section id="vscode">
+<h4>vscode<a class="headerlink" href="#vscode" title="Lien vers cette rubrique"></a></h4>
+<p>Dans vscode vous pouvez visualiser les différences entre 2 fichiers en utilisant pour les 2 versions d’un même fichier <code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">for</span> <span class="pre">Compare</span></code> qui s’obtient en faisant un clic droit sur chaque version du fichier dans l’explorateur de fichiers.</p>
+</section>
+<section id="kompare">
+<h4>Kompare<a class="headerlink" href="#kompare" title="Lien vers cette rubrique"></a></h4>
+<p>Kompare est un outil graphique pour visualiser les différences entre 2 fichiers, très bien fait qui fait partie de la suite kde.
+Il s’installe avec la commande suivante :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>kompare
+</pre></div>
+</div>
+<p>Il s’utilise en ligne de commande de la manière suivante :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kompare<span class="w"> </span>fichier1<span class="w"> </span>fichier2
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="implications-de-l-utilisation-de-git-dans-la-redaction-de-code">
+<h2>Implications de l’utilisation de git dans la rédaction de code<a class="headerlink" href="#implications-de-l-utilisation-de-git-dans-la-redaction-de-code" title="Lien vers cette rubrique"></a></h2>
+<p>L’unité de base étant la ligne, il est important de placer sur des lignes différentes des éléments dont la sémantique est différente.
+Ainsi pour un fichier comme ce cours (c’est aussi valable pour un rapport ou une thèse), il est très intéressant de placer des phrases différentes sur des lignes différentes.
+On laisse le soin au système de mise en forme de texte de gérer les retours à la ligne.
+C’est naturellement ce qui se passe avec LaTex (.tex) ou restructuredtext (.rst), ce dernier étant le format utilisé par ce cours pour générer cette documentation avec sphinx.</p>
+</section>
+<section id="pour-aller-plus-loin-sur-l-algorithme-de-difference">
+<h2>Pour aller plus loin sur l’algorithme de différence<a class="headerlink" href="#pour-aller-plus-loin-sur-l-algorithme-de-difference" title="Lien vers cette rubrique"></a></h2>
+<p>L’algorithme est appelé algorithme de différences en ligne de Myers.
+Il cherche les plus longues sous-séquence de lignes communes entre les 2 fichiers.
+Des bonnes explications sont disponibles:</p>
+<ul>
+<li><p>James Coglan présente un article sur son blog en 2 parties:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="http://blog.jcoglan.com/2017/09/19/the-myers-diff-algorithm-part-1/">The Myers diff algorithm: part 1</a>.</p></li>
+<li><p><a class="reference external" href="http://blog.jcoglan.com/2017/09/19/the-myers-diff-algorithm-part-2/">The Myers diff algorithm: part 2</a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Nicholas Butler présente un bon article sur son blog:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="http://simplygenius.net/Article/DiffTutorial1">Myers” Diff Algorithm: The basic greedy algorithm</a>.</p></li>
+<li><p><a class="reference external" href="http://simplygenius.net/Article/DiffTutorial2">Myers” Diff Algorithm : The linear space refinement</a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Diff">Wikipedia Diff article</a>.</p></li>
+</ul>
+</section>
+<section id="comment-versionner-les-fichiers-binaires">
+<h2>Comment versionner les fichiers binaires ?<a class="headerlink" href="#comment-versionner-les-fichiers-binaires" title="Lien vers cette rubrique"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Manuel YGUEL.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

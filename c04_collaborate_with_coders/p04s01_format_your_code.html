@@ -1,0 +1,166 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formater automatiquement le code &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2ec175e1" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=05dadb3a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Formatter automatiquement la documentation RestructuredText (RST)" href="p04s02_format_rst.html" />
+    <link rel="prev" title="Les outils nécessaires pour collaborer entre codeurs" href="p04s00_index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cours d'Informatique Industrielle avec ROS2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Informatique Industrielle &amp; ROS2</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../c00_introduction/p00s00_index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c01_create_and_publish_doc/p01s00_index.html">Premier projet &amp; doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_first_ros2_project_pimped/p02s00_index.html">Tutoriel ROS2 épicé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c03_test_your_code/p03s00_index.html">Tester le code</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="p04s00_index.html">Les outils nécessaires pour collaborer entre codeurs</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Formater automatiquement le code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conventions-de-codage">Conventions de codage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p04s02_format_rst.html">Formatter automatiquement la documentation RestructuredText (RST)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p04s10_precommit.html">L’outil pre-commit</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Travaux Pratiques</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../p00_pentograph_pencil_holder_with_rpi_and_dynamixel/p50s00_index.html">Pantographe de dessin robotisé avec Raspberry Pi et ROS2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../p01_rpi_ubuntu_as_a_ros2_robotic_platform/p51s00_index.html">Ubuntu &amp; RPi &amp; ROS2</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cours d'Informatique Industrielle avec ROS2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="p04s00_index.html">Les outils nécessaires pour collaborer entre codeurs</a></li>
+      <li class="breadcrumb-item active">Formater automatiquement le code</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/c04_collaborate_with_coders/p04s01_format_your_code.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="formater-automatiquement-le-code">
+<h1>Formater automatiquement le code<a class="headerlink" href="#formater-automatiquement-le-code" title="Lien vers cette rubrique"></a></h1>
+<p id="index-0">Le formatage du code est essentiel dans le développement logiciel.
+Il permet avant tout d’isoler les modifications de fond des modifications de forme.</p>
+<p>Grâce au formatage, entre 2 versions du code intervenant sur un même élément, ne devrait être modifiés que des éléments de sémantique. Par exemple: ce que fait une fonction, une opération (e.g. le changement d’un + en un -), une variable ajoutée, supprimée ou modifiée, etc. Les éléments de forme (e.g. l’indentation, les espaces, les retours à la ligne, etc.) ne devraient pas être modifiés. Mieux ceux-ci devraient être automatiquement appliqués par l’outil de formatage de code.</p>
+<p>Grâce au formatage automatique, l’objectif est que dans le système de versionning (ici git), qui fonctionne rapelons-le en enregistrant les différences entre 2 versions, n’apparaissent que les éléments de fond. Les commits seront donc plus courts, et donc plus clairs et plus facile à analyser. Cela aura un impact profond sur la productivité lorsqu’il s’agira de comprendre pourquoi une modification a été faite ou d’isoler une erreur introduite par un commit.</p>
+<p>Les avantages fondamentaux du formatage automatique du code sont :
+#. Le formatage du code n’est plus à la charge du programmeur, il peut se concentrer sur le fond.
+#. Uniformiser le formatage du code entre tous les fichiers d’un projet.
+#. Faciliter la lecture du code, car des conventions sont mises en place qui permettent d’avoir sur tout un projet une homogénéité dans la présentation du code. Plus facile à comprendre, le code est donc plus facile à maintenir.
+#. Minimiser la taille d’un changement dans un commit.
+#. Faciliter la compréhension des modifications apportées à un code.
+#. Faciliter la détection des erreurs.</p>
+<p>Pour formatter automatiquement le code, on utilise un fichier de règles de formatage. Ce fichier est spécifique à chaque langage de programmation. Il est possible de le personnaliser pour qu’il corresponde à vos préférences de formatage.</p>
+<p>Ainsi toutes les règles de formatage sont définies à un seul endroit et appliquées automatiquement à tous les fichiers du projet.</p>
+<p>Il est très important de définir le formatage au début d’un projet et de ne pas le changer.
+En effet si le formatage change, tous les fichiers du projet seront modifiés, ce qui rendra difficile la lecture des différences entre 2 versions du code qui se situeraient avant et après le changement de formatage.
+C’est une opération néanmoins possible, mais vu ses implications, elle doit être mûrement réfléchie, et évitée si possible.</p>
+</section>
+<section id="conventions-de-codage">
+<h1>Conventions de codage<a class="headerlink" href="#conventions-de-codage" title="Lien vers cette rubrique"></a></h1>
+<p>De manière plus générale, il est intéressant de définir des règles de codage permettant d’homogénéiser encore un peu plus l’écriture du code dans un projet.
+Ces règles vont au delà du formatage du code, parmi les conventions usuelles on trouve des règles qui définissent:
+#. des conventions de nommage (des fichiers, des variables, des variables globales, des classes, etc.),
+#. des règles de structuration et de conception du code, en particulier du code objet,
+#. des librairies préconisées ou interdites,
+#. des règles de gestion des erreurs, des exceptions,
+#. des règles de commentaires</p>
+<p>Beaucoup de ces règles peuvent être vérifiées automatiquement voir corrigées automatiquement par des outils d’analyse de code statique qu’on appelle des <code class="docutils literal notranslate"><span class="pre">linters</span></code>.</p>
+<p>Dans la suite on dira parfois <code class="docutils literal notranslate"><span class="pre">formatter</span></code> pour désigner la correction du code pour respecter les règles de formatage et les conventions de codage, mais on pourrait aussi dire <code class="docutils literal notranslate"><span class="pre">linter</span></code> pour désigner l’ensemble des règles de codage (dont font partie les règles de formatage).</p>
+<p>Pour le projet ROS2, on peut trouver toutes les instructions de formatage sur <a class="reference external" href="https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing/Code-Style-Language-Versions.html">la page de documentation «Code style and language versions»</a></p>
+<p>Nous allons maintenant regarder en détail comment formater automatiquement:
+#. la documentation en restructuredtext
+#. du code C++
+#. du code Python</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="p04s00_index.html" class="btn btn-neutral float-left" title="Les outils nécessaires pour collaborer entre codeurs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="p04s02_format_rst.html" class="btn btn-neutral float-right" title="Formatter automatiquement la documentation RestructuredText (RST)" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Manuel YGUEL.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

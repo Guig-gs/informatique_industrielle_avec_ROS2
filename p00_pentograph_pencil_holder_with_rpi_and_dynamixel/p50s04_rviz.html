@@ -1,0 +1,208 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visualisation avec RViz &mdash; Documentation Cours d&#39;Informatique Industrielle avec ROS2 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2ec175e1" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=05dadb3a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Implémentation du modèle RViz du pantographe sur votre machine" href="p50s05_rviz_install.html" />
+    <link rel="prev" title="Génération de la description URDF du pantographe" href="p50s03_urdf.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cours d'Informatique Industrielle avec ROS2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Informatique Industrielle &amp; ROS2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../c00_introduction/p00s00_index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c01_create_and_publish_doc/p01s00_index.html">Premier projet &amp; doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c02_first_ros2_project_pimped/p02s00_index.html">Tutoriel ROS2 épicé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c03_test_your_code/p03s00_index.html">Tester le code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c04_collaborate_with_coders/p04s00_index.html">Les outils nécessaires pour collaborer entre codeurs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Travaux Pratiques</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="p50s00_index.html">Pantographe de dessin robotisé avec Raspberry Pi et ROS2</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="p50s01_material_description.html">Description du matériel de la plateforme pantographe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p50s02_mechanical_description.html">Description mécanique de la plateforme pantographe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p50s03_urdf.html">Génération de la description URDF du pantographe</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Visualisation avec RViz</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modele-initial">Modèle initial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mise-a-jour-du-modele">Mise à jour du modèle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="p50s05_rviz_install.html">Implémentation du modèle RViz du pantographe sur votre machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p50s06_dynamixel.html">Tests des moteurs avec la libraire DynamixelSDK</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../p01_rpi_ubuntu_as_a_ros2_robotic_platform/p51s00_index.html">Ubuntu &amp; RPi &amp; ROS2</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cours d'Informatique Industrielle avec ROS2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="p50s00_index.html">Pantographe de dessin robotisé avec Raspberry Pi et ROS2</a></li>
+      <li class="breadcrumb-item active">Visualisation avec RViz</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/p00_pentograph_pencil_holder_with_rpi_and_dynamixel/p50s04_rviz.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="visualisation-avec-rviz">
+<h1>Visualisation avec RViz<a class="headerlink" href="#visualisation-avec-rviz" title="Lien vers cette rubrique"></a></h1>
+<p>L’objectif de cette section est de visualiser le modèle URDF du pantographe dans RViz.</p>
+<section id="modele-initial">
+<h2>Modèle initial<a class="headerlink" href="#modele-initial" title="Lien vers cette rubrique"></a></h2>
+<p>Pour commencer, nous récupérons un projet existant fonctionnel. Il s’agit d’un modèle de robot Scara, contrôlable via ROS2 avec RViz Cela nous permet de débuter avec une base solide et d’y ajouter nos modifications au fur et à mesure. Ainsi, chaque élément ajouté peut être validé avant l’ajout de nouvelles fonctionnalités.
+Le projet Scara a été récupéré sur le dépôt GitHub suivant: <a class="reference external" href="https://github.com/ICube-Robotics/ecat_ros2_workshop">https://github.com/ICube-Robotics/ecat_ros2_workshop</a>.</p>
+</section>
+<section id="mise-a-jour-du-modele">
+<h2>Mise à jour du modèle<a class="headerlink" href="#mise-a-jour-du-modele" title="Lien vers cette rubrique"></a></h2>
+<p>Une fois le projet cloné, nous allons remplacer le modèle URDF du robot Scara par celui du pantographe que nous avons créé précédemment. Pour cela, nous copions le fichier URDF du pantographe dans le répertoire approprié du projet cloné, en veillant à mettre à jour les chemins des ressources (modèles 3D, textures, etc.) dans le fichier URDF si nécessaire.
+Pour ce faire, nous avons tout d’abord importé les fichiers 3D (formats .dae) dans le dossier « meshes » du projet cloné. Ensuite, nous avons modifié le fichier URDF pour refléter la structure et les caractéristiques du pantographe, en remplaçant les liens et les joints du Scara par ceux du pantographe.</p>
+<p>Voici un example de commande dans l’URDF pour inclure un modèle 3D (exemple de la base du pantographe):</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;base_link&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;visual&gt;</span>
+<span class="w">    </span><span class="nt">&lt;geometry&gt;</span>
+<span class="w">      </span><span class="nt">&lt;mesh</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;package://scara_description/urdf/meshes/base.dae&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="w">    </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;1.5708 0 0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/visual&gt;</span>
+<span class="nt">&lt;/link&gt;</span>
+</pre></div>
+</div>
+<p>Pour chaque lien du pantographe, nous devons définir un élément &lt;link&gt; dans l’URDF, en spécifiant le nom du lien, la géométrie (en utilisant le modèle 3D correspondant) et l’origine (position et orientation) du lien par rapport au repère parent (ici, la base du pantographe est positionnée à l’origine du repère global avec une rotation de 90 degrés autour de l’axe X pour correspondre à l’orientation correcte dans RViz).
+Nous faisons de même pour les autres parties du pantographe (liens et joints).</p>
+<p>Ensuite il faudra adapter les propriétés des joints (types, limites, etc.) pour correspondre au comportement attendu du pantographe.
+Voici un exemple de définition d’un joint rotatif dans l’URDF, entre la base et le premier lien du pantographe, après avoir défini les 2 solides correspondants:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;joint1&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;revolute&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;parent</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;base_link&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;child</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;link1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;-0.08 -0.07 0.035&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;axis</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;limit</span><span class="w"> </span><span class="na">lower=</span><span class="s">&quot;-3.14&quot;</span><span class="w"> </span><span class="na">upper=</span><span class="s">&quot;3.14&quot;</span><span class="w"> </span><span class="na">effort=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="na">velocity=</span><span class="s">&quot;1.0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/joint&gt;</span>
+</pre></div>
+</div>
+<p>Pour définir un joint, nous devons préciser les 2 solides qui sont reliés par le joint (parent et child), l’origine du joint (position et orientation par rapport au solide parent), l’axe de rotation, ainsi que les limites de mouvement du joint (bornes inférieure et supérieure, effort maximal, vitesse maximale).</p>
+<p>Pour fixer les origines des repéres des liens et des joints, nous nous basons sur les dimensions et la géométrie du pantographe, récupérées depuis les fichiers 3D qui sont présents dans l’onglet « Génération de la description URDF du pantographe ». Il est important de positionner correctement les origines pour assurer un mouvement réaliste et précis du modèle dans RViz.</p>
+<p>Cependant, une fois notre modèle URDF mis à jour, nous avons remarqué que le pantographe ne s’affiche pas correctement dans RViz, plus précisément, les axes de rotations des joints ne correspondent pas aux mouvements attendus du pantographe. Cela est dû au fait que les axes de rotation définis dans les fichiers .dae de base ne correspondaient pas aux axes de rotations au niveau des joints du pantographe. Pour résoudre ce problème, nous avons ajuster les axes de rotation dans les fichiers .step, et ensuite réexporté les fichiers .dae avec les axes de rotation corrects en utilisant le logiciel FreeCAD.
+Les fichiers .dae mis à jour sont disponibles dans le dossier « scara_description/urdf/meshes », et le modèle URDF a été mis à jour en conséquence.</p>
+<p>Voici un example de création d’une liason entre deux parties du pantographe dans l’URDF, tout en définissant les solides correspondants:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;base_link&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;visual&gt;</span>
+<span class="w">    </span><span class="nt">&lt;geometry&gt;</span>
+<span class="w">      </span><span class="nt">&lt;mesh</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;package://scara_description/urdf/meshes/base.dae&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="w">    </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;1.5708 0 0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/visual&gt;</span>
+<span class="nt">&lt;/link&gt;</span>
+
+<span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;link1&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;visual&gt;</span>
+<span class="w">    </span><span class="nt">&lt;geometry&gt;</span>
+<span class="w">      </span><span class="nt">&lt;mesh</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;package://scara_description/urdf/meshes/link1.dae&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="w">    </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/visual&gt;</span>
+<span class="nt">&lt;/link&gt;</span>
+
+<span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;joint1&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;revolute&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;parent</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;base_link&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;child</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;link1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;-0.08 -0.07 0.035&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;axis</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;limit</span><span class="w"> </span><span class="na">lower=</span><span class="s">&quot;-3.14&quot;</span><span class="w"> </span><span class="na">upper=</span><span class="s">&quot;3.14&quot;</span><span class="w"> </span><span class="na">effort=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="na">velocity=</span><span class="s">&quot;1.0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/joint&gt;</span>
+</pre></div>
+</div>
+<p>Ainsi, nous définissons chaque lien et joint du pantographe dans l’URDF, en veillant à ce que les origines et les axes de rotation soient correctement positionnés pour assurer un comportement réaliste dans RViz.
+Il faudra noter qu’il n’est pas possible de définir un robot parallèle (boucle fermée) dans un fichier URDF standard. Par conséquent, le pantographe est modélisé comme un robot à chaîne ouverte dans RViz. Ainsi nous cassons la liaison entre le second bras et le troisième bras, pour permettre la modélisation du pantographe dans RViz, dans le but de pouvoir garder la première et la dernière révolution qui représentent la position des moteurs Dynamixel du pantographe.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="p50s03_urdf.html" class="btn btn-neutral float-left" title="Génération de la description URDF du pantographe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="p50s05_rviz_install.html" class="btn btn-neutral float-right" title="Implémentation du modèle RViz du pantographe sur votre machine" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Manuel YGUEL.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
