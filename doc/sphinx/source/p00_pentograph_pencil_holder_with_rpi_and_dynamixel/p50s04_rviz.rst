@@ -13,7 +13,7 @@ Le projet Scara a été récupéré sur le dépôt GitHub suivant: https://githu
 Mise à jour du modèle
 =====================
 Une fois le projet cloné, nous allons remplacer le modèle URDF du robot Scara par celui du pantographe que nous avons créé précédemment. Pour cela, nous copions le fichier URDF du pantographe dans le répertoire approprié du projet cloné, en veillant à mettre à jour les chemins des ressources (modèles 3D, textures, etc.) dans le fichier URDF si nécessaire. 
-POur ce faire, nous avons tout d'abord importé les fichiers 3D (formats .dae) dans le dossier "meshes" du projet cloné. Ensuite, nous avons modifié le fichier URDF pour refléter la structure et les caractéristiques du pantographe, en remplaçant les liens et les joints du Scara par ceux du pantographe.
+Pour ce faire, nous avons tout d'abord importé les fichiers 3D (formats .dae) dans le dossier "meshes" du projet cloné. Ensuite, nous avons modifié le fichier URDF pour refléter la structure et les caractéristiques du pantographe, en remplaçant les liens et les joints du Scara par ceux du pantographe.
 
 Voici un example de commande dans l'URDF pour inclure un modèle 3D (exemple de la base du pantographe):
 
